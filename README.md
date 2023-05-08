@@ -1,4 +1,4 @@
-####Description:
+#### Description:
 This is the first step towards building a full web application "A Clone of the AirBnB
 This will build the console it will contain command line interpreter and classes include those thaat inherits from a base class
 
@@ -14,13 +14,6 @@ Destroy an object
 1. ./console.py
 (hbnb) help
 
-Documented commands (type help <topic>):
-========================================
-EOF  help  quit
-
-(hbnb) 
-(hbnb) 
-(hbnb) quit
 #### Examples
 1. `create <class>`
 2. `User.update('7', {'name' : 'Omoba'})`
