@@ -13,7 +13,6 @@ Destroy an object
 #### How to use
 1. ./console.py
 (hbnb) help
-
 #### Examples
 1. `create <class>`
 2. `User.update('7', {'name' : 'Omoba'})`
@@ -22,3 +21,5 @@ Destroy an object
 5. `User.all()`
 6. `User.count()`
 7. `quit`
+
+test
