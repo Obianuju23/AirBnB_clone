@@ -21,5 +21,3 @@ Destroy an object
 5. `User.all()`
 6. `User.count()`
 7. `quit`
-
-test
