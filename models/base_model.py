@@ -46,3 +46,7 @@ class BaseModel:
         dict_re['created_at'] = self.created_at.isoformat()
         dict_re['updated_at'] = self.updated_at.isoformat()
         return dict_re
+
+    def __repr__(self):
+        """returns the string representation"""
+        return (self.__str__())
