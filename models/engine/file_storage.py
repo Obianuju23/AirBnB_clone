@@ -5,14 +5,14 @@ This model defines FileStorage class
 
 import json
 from models.base_model import BaseModel
-
+from models.user import User
 
 class FileStorage:
     """ The FileStorage Class """
 
     __file_path = "file.json"
     __objects = dict()
-    classes = {"BaseModel": BaseModel}
+    classes = {"BaseModel": BaseModel, "User": User}
 
     def all(self):
         """Returns a dictionary of all objects by <class name>.id"""
@@ -37,8 +37,10 @@ class FileStorage:
             with open(self.__file_path, "r") as myFile:
                 objects = json.load(myFile)
             for key, value in objects.items():
-                if value["__class__"] == "BaseModel":
-                    obj = BaseModel(**value)
+                class_name = value.get("__class__")
+                if class_name in self.classes:
+                    class_obj = self.classes[class_name]
+                    obj = class_obj(**value)
                     self.__objects[key] = obj
         except FileNotFoundError:
             pass
