@@ -110,26 +110,27 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, s):
         """Updates as instance based on the class name and id"""
         args = list(s.split())
-        classname = f"{args[0]}.{args[1]}"
-        if len(args) == 0:
-            print("** class name missing **")
-        elif args[0] not in HBNBCommand.my_classes:
-            print("** class doesn't exist **")
-        elif len(args) < 2:
-            print("** instance id missing **")
-        elif classname not in storage.all().keys():
-            print("** no instance found **")
-        elif len(args) < 3:
-            print("** attribute name missing **")
-        elif len(args) == 3:
-            print("** value missing **")
-        else:
+        obj_dict = storage.all()
+        if len(args) >= 4:
+            classname = f"{args[0]}.{args[1]}"
             attr_value = args[3]
             attr_value = attr_value.strip('"')
             attr_value = attr_value.strip("'")
             casting = type(eval(args[3]))
             setattr(storage.all()[classname], args[2], casting(attr_value))
             storage.all()[classname].save()
+        elif len(args) == 0:
+            print("** class name missing **")
+        elif args[0] not in HBNBCommand.my_classes:
+            print("** class doesn't exist **")
+        elif len(args) == 1:
+            print("** instance id missing **")
+        elif f"{args[0]}.{args[1]}" not in storage.all().keys():
+            print("** no instance found **")
+        elif len(args) < 3:
+            print("** attribute name missing **")
+        else:
+            print("** value missing **")
 
     def do_count(self, s):
         """retrieve the number of instances of a class"""
@@ -147,14 +148,57 @@ class HBNBCommand(cmd.Cmd):
     def default(self, s):
         """for accepting arguments in <class name>.all()"""
         args = s.split(".")
+
         if len(args) == 1:
             print(f"** Invalid syntax: {s}")
             return
         args1 = args[1].split("(")
         if args1[0] == "all":
             HBNBCommand.do_all(self, args[0])
-        if args1[0] == "count":
+        elif args1[0] == "count":
             HBNBCommand.do_count(self, args[0])
+        elif args1[0] == "show":
+            arg_id = args1[1]
+            arg_id = arg_id.split(")")
+            arg_id = arg_id[0].strip('"')
+            argument = args[0] + " " + arg_id
+            HBNBCommand.do_show(self, argument)
+        elif args1[0] == "destroy":
+            arg_id = args1[1]
+            arg_id = arg_id.split(")")
+            arg_id = arg_id[0].strip('"')
+            argument = args[0] + " " + arg_id
+            HBNBCommand.do_destroy(self, argument)
+        elif args1[0] == "update":
+            mul_args = args1[1].split(",", 1)
+            arg_id = mul_args[0].strip("'").strip('"')
+            arg_dict_str = mul_args[1].strip(')').strip()
+
+            try:
+                arg_dict = eval(arg_dict_str)
+                if isinstance(arg_dict, dict):
+                    for key, value in arg_dict.items():
+                        argument = args[0] + " " + arg_id + " " + key +\
+                                   " " + repr(value)
+                        HBNBCommand.do_update(self, argument)
+                else:
+                    mul_args = args1[1].split(",")
+                    arg_id = mul_args[0]
+                    arg_id = arg_id.strip('"')
+                    arg_id = arg_id.strip("'")
+                    arg_name = mul_args[1]
+                    arg_name = arg_name.strip(',')
+                    arg_name = arg_name.strip(" ")
+                    arg_name = arg_name.strip("'")
+                    arg_name = arg_name.strip('"')
+                    arg_val = mul_args[2]
+                    arg_val = arg_val.strip(" ")
+                    arg_val = arg_val.strip(")")
+                    argument = args[0] + " " + arg_id + " " + arg_name +\
+                        " " + arg_val
+                    HBNBCommand.do_update(self, argument)
+            except (SyntaxError, NameError):
+                print("** Invalid dictionary syntax **")
 
 
 if __name__ == "__main__":
