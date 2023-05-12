@@ -131,6 +131,19 @@ class HBNBCommand(cmd.Cmd):
             setattr(storage.all()[classname], args[2], casting(attr_value))
             storage.all()[classname].save()
 
+    def do_count(self, s):
+        """retrieve the number of instances of a class"""
+        if len(s) == 0:
+            print("** class name missing **")
+        elif s not in HBNBCommand.my_classes:
+            print("** class doesn't exist **")
+        else:
+            count = 0
+            for key, value in storage.all().items():
+                if s in key:
+                    count += 1
+            print(count)
+
     def default(self, s):
         """for accepting arguments in <class name>.all()"""
         args = s.split(".")
@@ -140,6 +153,8 @@ class HBNBCommand(cmd.Cmd):
         args1 = args[1].split("(")
         if args1[0] == "all":
             HBNBCommand.do_all(self, args[0])
+        if args1[0] == "count":
+            HBNBCommand.do_count(self, args[0])
 
 
 if __name__ == "__main__":
