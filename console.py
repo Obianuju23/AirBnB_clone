@@ -131,6 +131,16 @@ class HBNBCommand(cmd.Cmd):
             setattr(storage.all()[classname], args[2], casting(attr_value))
             storage.all()[classname].save()
 
+    def default(self, s):
+        """for accepting arguments in <class name>.all()"""
+        args = s.split(".")
+        if len(args) == 1:
+            print(f"** Invalid syntax: {s}")
+            return
+        args1 = args[1].split("(")
+        if args1[0] == "all":
+            HBNBCommand.do_all(self, args[0])
+
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
