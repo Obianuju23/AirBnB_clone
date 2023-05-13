@@ -2,12 +2,22 @@
 """This is a test suite for User class in models.user"""
 
 import unittest
+import os
 from models.base_model import BaseModel
 from models.user import User
 
 
 class TestUser(unittest.TestCase):
     """Test cases against the User class"""
+
+    def setUp(self):
+        pass
+
+    def tearDown(self):
+        try:
+            os.remove("file.json")
+        except FileNotFoundError:
+            pass
 
     def test_attrs_are_class_attrs(self):
         u = User()
@@ -19,6 +29,7 @@ class TestUser(unittest.TestCase):
                         and hasattr(User, "password"))
 
     def test_class_attrs(self):
+        """tests that attributes is of the right type"""
         u = User()
         self.assertIs(type(u.first_name), str)
         self.assertIs(type(u.last_name), str)
@@ -30,5 +41,26 @@ class TestUser(unittest.TestCase):
         self.assertTrue(u.password == "")
 
     def test_user_is_a_subclass_of_basemodel(self):
+        """tests that attribute is a subclass of basemodel"""
         u = User()
-        self.assertTrue(issubclass(type(u), BaseModel)
+        self.assertTrue(issubclass(type(u), BaseModel))
+
+    def test_save(self):
+        """tests that the save function works"""
+        u = User()
+        u.save()
+        u1 = User()
+        u1.save()
+        self.assertFalse(u.updated_at is u.created_at)
+        self.assertNotEqual(u.updated_at, u1.updated_at)
+        self.assertNotEqual(u.id, u1.id)
+
+    def test_to_dict(self):
+        """tests that the to_dict function works"""
+        u = User()
+        u_dict = u.to_dict()
+        self.assertIsInstance(u_dict['created_at'], str)
+        self.assertIsInstance(u_dict['updated_at'], str)
+
+if __name__ == "__main__":
+    unittest.main()
