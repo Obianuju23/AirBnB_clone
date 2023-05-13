@@ -22,8 +22,10 @@ class TestBaseModel(unittest.TestCase):
         my_model = BaseModel()
         my_model.name = "Omoba"
         my_model.my_number = 89
+        self.assertEqual(str(type(my_model)), "<class 'models.base_model.BaseModel'>")
         self.assertEqual(type(my_model), BaseModel)
         self.assertTrue(isinstance(my_model, BaseModel))
+        self.assertTrue(issubclass(type(my_model), BaseModel))
 
     def test_doc(self):
         """checking if functions are documented"""
