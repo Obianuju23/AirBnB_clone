@@ -23,6 +23,7 @@ class TestBaseModel(unittest.TestCase):
         my_model.name = "Omoba"
         my_model.my_number = 89
         self.assertEqual(type(my_model), BaseModel)
+        self.assertTrue(isinstance(my_model, BaseModel))
 
     def test_doc(self):
         """checking if functions are documented"""
@@ -57,6 +58,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertTrue(my_model_dict['__class__'] == 'BaseModel')
         self.assertIsInstance(my_model_dict['created_at'], str)
         self.assertIsInstance(my_model_dict['updated_at'], str)
+        self.assertEqual(my_model.__class__.__name__, "BaseModel")
 
 
 if __name__ == "__main__":
