@@ -197,8 +197,8 @@ class HBNBCommand(cmd.Cmd):
                     argument = args[0] + " " + arg_id + " " + arg_name +\
                         " " + arg_val
                     HBNBCommand.do_update(self, argument)
-            except (SyntaxError, NameError):
-                print("** Invalid dictionary syntax **")
+            except (SyntaxError, NameError, IndexError):
+                print("** value missing **")
 
 
 if __name__ == "__main__":

@@ -10,15 +10,18 @@ class TestAmenity(unittest.TestCase):
     """This is the Amenity class TestCase"""
 
     def setUp(self):
+        """used to setup the test"""
         pass
 
     def tearDown(self):
+        """used to destroy the test"""
         try:
             os.remove("file.json")
         except FileNotFoundError:
             pass
 
     def test_amenity_is_a_subclass_of_basemodel(self):
+        """tests that is a subclass of BaseModel"""
         my_amenity = Amenity()
         self.assertTrue(issubclass(type(my_amenity), BaseModel))
 

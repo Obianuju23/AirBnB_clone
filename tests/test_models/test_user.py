@@ -11,15 +11,18 @@ class TestUser(unittest.TestCase):
     """Test cases against the User class"""
 
     def setUp(self):
+        """used to set up the test"""
         pass
 
     def tearDown(self):
+        """used to destroy the test"""
         try:
             os.remove("file.json")
         except FileNotFoundError:
             pass
 
     def test_attrs_are_class_attrs(self):
+        """tests that the attributes are present"""
         u = User()
         # test that it is a class attribute
         self.assertTrue(hasattr(User, "first_name")

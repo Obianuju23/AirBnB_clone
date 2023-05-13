@@ -11,15 +11,18 @@ class TestCity(unittest.TestCase):
     """This is Test case for City class"""
 
     def setUp(self):
+        """used to set up the test"""
         pass
 
     def tearDown(self):
+        """used to destroy the test"""
         try:
             os.remove("file.json")
         except FileNotFoundError:
             pass
 
     def test_city_is_a_subclass_of_basemodel(self):
+        """checks that city is a subclass of Basemodel"""
         city = City()
         self.assertTrue(issubclass(type(city), BaseModel))
 
@@ -39,6 +42,7 @@ class TestCity(unittest.TestCase):
         self.assertTrue('state_id' in city.__dict__)
 
     def test_name_and_state(self):
+        """test that the type of attributes are correct"""
         city = City()
         city.state_id = "54"
         city.name = "Benin"

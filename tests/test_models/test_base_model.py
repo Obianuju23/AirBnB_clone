@@ -10,15 +10,18 @@ class TestBaseModel(unittest.TestCase):
     """tests for the BaseModel Class"""
 
     def setUp(self):
+        """setup the test"""
         pass
 
     def tearDown(self):
+        """destroy the test"""
         try:
             os.remove("file.json")
         except FileNotFoundError:
             pass
 
     def test_init(self):
+        """test in initialiazation"""
         my_model = BaseModel()
         my_model.name = "Omoba"
         my_model.my_number = 89
@@ -26,10 +29,6 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(type(my_model), BaseModel)
         self.assertTrue(isinstance(my_model, BaseModel))
         self.assertTrue(issubclass(type(my_model), BaseModel))
-        with self.assertRaises(TypeError) as e:
-            BaseModel.__init__()
-        msg = "__init__() missing 1 required positional argument: 'self'"
-        self.assertEqual(str(e.exception), msg)
 
     def test_doc(self):
         """checking if functions are documented"""

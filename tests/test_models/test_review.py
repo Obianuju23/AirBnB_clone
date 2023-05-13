@@ -10,9 +10,11 @@ class TestReview(unittest.TestCase):
     """Test case for Review class"""
 
     def setUp(self):
+        """used to setup the test"""
         pass
 
     def tearDown(self):
+        """used to destroy the test"""
         try:
             os.remove("file.json")
         except FileNotFoundError:
