@@ -47,6 +47,14 @@ class TestFileStorage(unittest.TestCase):
         key = "State." + str(state.id)
         self.assertIsNotNone(store_dict[key])
 
+    def test_doc(self):
+        """tests if all function are documented"""
+        self.assertIsNotNone(FileStorage.all)
+        self.assertIsNotNone(FileStorage.save)
+        self.assertIsNotNone(FileStorage.new)
+        self.assertIsNotNone(FileStorage.reload)
+        self.assertIsNotNone(FileStorage)
+
     def test_reload(self):
         """tests the reload function in FileStorage"""
         store = FileStorage()
