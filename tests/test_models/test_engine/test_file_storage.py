@@ -28,6 +28,11 @@ class TestFileStorage(unittest.TestCase):
         except FileNotFoundError:
             pass
 
+    def test_instance(self):
+        """test the instance"""
+        store = FileStorage()
+        self.assertIsInstance(store, FileStorage)
+
     def test_all(self):
         """tests the all function in Filestorage"""
         store = FileStorage()
