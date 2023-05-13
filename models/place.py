@@ -5,6 +5,7 @@ This is Place subclass  model inherited from parent class BaseModel
 
 from models.base_model import BaseModel
 
+
 class Place(BaseModel):
     """
     This is a subclass Place that inherits from BaseModel
