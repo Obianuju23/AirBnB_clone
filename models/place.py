@@ -7,9 +7,7 @@ from models.base_model import BaseModel
 
 
 class Place(BaseModel):
-    """
-    This is a subclass Place that inherits from BaseModel
-    """
+    """This is a subclass Place that inherits from BaseModel"""
 
     city_id = ""
     user_id = ""

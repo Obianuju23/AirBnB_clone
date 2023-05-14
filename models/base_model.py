@@ -10,7 +10,7 @@ import models
 
 class BaseModel:
     """
-    BaseModel class defines all common attributes/methods for other classes
+    This BaseModel class defines all common attributes/methods for other classes
     """
 
     def __init__(self, *args, **kwargs):
@@ -30,7 +30,7 @@ class BaseModel:
             models.storage.new(self)
 
     def __str__(self):
-        """Returns the str representation of the instance of BaseModel class"""
+        """returns the str representation of the instance of BaseModel class"""
         return "[{}] ({}) {}".format(self.__class__.__name__,
                                      self.id, self.__dict__)
 
