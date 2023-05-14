@@ -4,7 +4,7 @@ This will build the console it will contain command line interpreter and classes
 
 ##### Description of the Command Interpreter
 The command interpreter works just like a shell but only for specific uses.
-#### Uses
+##### Uses
 Create a new object (ex: a new User or a new Place)
 Retrieve an object from a file, a database etc…
 Do operations on objects (count, compute stats, etc…)
