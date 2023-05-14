@@ -16,7 +16,7 @@ from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
-    """provides the entry point to the imterpreter"""
+    """It provides the entry point to the imterpreter"""
 
     prompt = "(hbnb) "
     my_classes = {"BaseModel", "User", "State", "City",
