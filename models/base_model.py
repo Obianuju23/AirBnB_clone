@@ -10,7 +10,7 @@ import models
 
 class BaseModel:
     """
-    This BaseModel class defines all common attributes/methods for other classes
+    BaseModel class defines all common attributes/methods for other classes
     """
 
     def __init__(self, *args, **kwargs):
