@@ -27,7 +27,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_EOF(self, s):
-        """this implements the EOF"""
+        """This implements the EOF"""
         print()
         return True
 
