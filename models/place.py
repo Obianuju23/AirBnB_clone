@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This is Place subclass  model inherited from parent class BaseModel
+This Place subclass  model inherited from parent class BaseModel
 """
 
 from models.base_model import BaseModel
