@@ -10,7 +10,7 @@ Retrieve an object from a file, a database etc…
 Do operations on objects (count, compute stats, etc…)
 Update attributes of an object
 Destroy an object
-#### How to use
+##### How to use
 1. ./console.py
 (hbnb) help
 #### Examples
