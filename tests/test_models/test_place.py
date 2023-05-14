@@ -9,7 +9,7 @@ from models.place import Place
 
 class TestPlace(unittest.TestCase):
     """This is Test case for City class"""
- 
+
     def setUp(self):
         """used to set up the test"""
         pass
@@ -54,7 +54,6 @@ class TestPlace(unittest.TestCase):
         self.assertTrue("latitude" in place.__dict__)
         self.assertTrue("longitude" in place.__dict__)
         self.assertTrue("amenity_ids" in place.__dict__)
-        
 
     def test_attrs_type(self):
         """tests the type of the attributes"""
@@ -95,6 +94,7 @@ class TestPlace(unittest.TestCase):
         self.assertIsInstance(place_dict['created_at'], str)
         self.assertIsInstance(place_dict['amenity_ids'], list)
         self.assertIsInstance(place_dict['price_by_night'], int)
+
 
 if __name__ == "__main__":
     unittest.main()

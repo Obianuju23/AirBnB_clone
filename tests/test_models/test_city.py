@@ -48,7 +48,7 @@ class TestCity(unittest.TestCase):
         city.name = "Benin"
         self.assertEqual(type(city.state_id), str)
         self.assertEqual(type(city.name), str)
-    
+
     def test_save(self):
         """test that the save function works"""
         city = City()

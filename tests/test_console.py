@@ -29,7 +29,7 @@ class TestConsole(unittest.TestCase):
         """used to tear down the test"""
         try:
             os.remove("file.json")
-        except:
+        except FileNotFoundError:
             pass
 
     def test_doc(self):
