@@ -1,15 +1,13 @@
 #!/usr/bin/python3
 """
-This is Place subclass  model inherited from parent class BaseModel
+This Place subclass  model inherited from parent class BaseModel
 """
 
 from models.base_model import BaseModel
 
 
 class Place(BaseModel):
-    """
-    This is a subclass Place that inherits from BaseModel
-    """
+    """This is a subclass Place that inherits from BaseModel"""
 
     city_id = ""
     user_id = ""

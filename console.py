@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 This is the console model
-it provides the entry to the console with
+it provides an entry to the console with
 some specific implementations
 """
 import cmd
@@ -16,18 +16,18 @@ from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
-    """provides the entry point to the imterpreter"""
+    """It provides the entry point to the imterpreter"""
 
     prompt = "(hbnb) "
     my_classes = {"BaseModel", "User", "State", "City",
                   "Amenity", "Place", "Review"}
 
     def do_quit(self, s):
-        """this implements the quit"""
+        """This implements the quit"""
         return True
 
     def do_EOF(self, s):
-        """this implements the EOF"""
+        """This implements the EOF"""
         print()
         return True
 
