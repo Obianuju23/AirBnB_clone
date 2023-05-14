@@ -13,7 +13,7 @@ Destroy an object
 ##### How to use
 1. ./console.py
 (hbnb) help
-#### Examples
+##### Examples
 1. `create <class>`
 2. `User.update('7', {'name' : 'Omoba'})`
 3. `User.destroy('7')`
