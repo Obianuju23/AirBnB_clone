@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 This is the console model
-it provides the entry to the console with
+it provides an entry to the console with
 some specific implementations
 """
 import cmd
