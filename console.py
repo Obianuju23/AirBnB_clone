@@ -23,7 +23,7 @@ class HBNBCommand(cmd.Cmd):
                   "Amenity", "Place", "Review"}
 
     def do_quit(self, s):
-        """this implements the quit"""
+        """This implements the quit"""
         return True
 
     def do_EOF(self, s):
