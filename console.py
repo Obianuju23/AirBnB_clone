@@ -119,8 +119,10 @@ class HBNBCommand(cmd.Cmd):
             casting = type(eval(args[3]))
             setattr(storage.all()[classname], args[2], casting(attr_value))
             storage.all()[classname].save()
+            return
         elif len(args) == 0:
             print("** class name missing **")
+            return
         elif args[0] not in HBNBCommand.my_classes:
             print("** class doesn't exist **")
             return
@@ -131,8 +133,10 @@ class HBNBCommand(cmd.Cmd):
             return
         elif len(args) < 3:
             print("** attribute name missing **")
+            return
         else:
             print("** value missing **")
+            return
 
     def do_count(self, s):
         """retrieve the number of instances of a class"""
